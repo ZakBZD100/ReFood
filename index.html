@@ -205,6 +205,12 @@ nav {
   border-right: 1px solid var(--border);
   transition: var(--transition);
 }
+.stat:only-child {
+  max-width: none;
+  border-right: none;
+  width: 100%;
+  padding: 34px 28px;
+}
 .stat:hover { background: #f7fbf8; }
 .stat:last-child { border-right: none; }
 .stat-num {
@@ -213,7 +219,19 @@ nav {
   background-clip: text;
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
 }
+.stat:only-child .stat-num {
+  font-size: clamp(2.6rem, 5vw, 3.4rem);
+  line-height: 1.05;
+}
 .stat-label { font-size: .82rem; color: var(--muted); font-weight: 600; margin-top: 4px; }
+.stat:only-child .stat-label {
+  margin: 12px auto 0;
+  max-width: 760px;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  font-weight: 700;
+  color: var(--text);
+}
 
 /* ─── PROMO ZONE ─────────────────────────────────────────────────── */
 .promo-zone {
@@ -728,10 +746,18 @@ footer p { font-size: .88rem; color: rgba(255,255,255,.4); margin-top: 8px; }
 
 <!-- ─── STATS ─────────────────────────────────────────────────────── -->
 <div class="stats-strip">
-  <div class="stat"><div class="stat-num">2,20€</div><div class="stat-label">Coût ingredients moyens / assiette</div></div>
-  <div class="stat"><div class="stat-num">x1,4</div><div class="stat-label">Coefficient logistique</div></div>
-  <div class="stat"><div class="stat-num">3,10€</div><div class="stat-label">Coût complet estime</div></div>
-  <div class="stat"><div class="stat-num">4,20€</div><div class="stat-label">Prix conseille (marge env. 35%)</div></div>
+  <div class="stat">
+    <div class="stat-num">13%</div>
+    <div class="stat-label">Marge prevue</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">2,6 EUR</div>
+    <div class="stat-label">Cout moyen</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">2,99 EUR</div>
+    <div class="stat-label">Prix de vente moyen</div>
+  </div>
 </div>
 
 <!-- ─── BROWSE / DONATE TABS ──────────────────────────────────────── -->
@@ -759,7 +785,7 @@ footer p { font-size: .88rem; color: rgba(255,255,255,.4); margin-top: 8px; }
         <div>
           <div class="section-tag">Donner c'est agir</div>
           <h2 class="section-title" id="donate">Publiez vos invendus</h2>
-          <p class="section-sub" style="margin-bottom:28px">Saisissez vos coûts ingredients, appliquez votre logistique, puis publiez un prix juste avec marge maitrisee.</p>
+          <p class="section-sub" style="margin-bottom:28px">Publiez vos invendus en quelques clics, avec des informations claires pour faciliter le retrait.</p>
 
           <div class="form-card">
             <h3>Ajouter un invendu</h3>
@@ -927,8 +953,8 @@ footer p { font-size: .88rem; color: rgba(255,255,255,.4); margin-top: 8px; }
 <section class="map-section">
   <div class="map-inner">
     <div class="section-tag" style="color:var(--green-light)">Disponibilité temps réel</div>
-    <h2 class="section-title">Points de collecte et coûts locaux</h2>
-    <p class="section-sub">Comparez les annonces actives et leur niveau de coût sur Mulhouse et alentours.</p>
+    <h2 class="section-title">Points de collecte pres de vous</h2>
+    <p class="section-sub">Comparez les annonces actives autour de Mulhouse et alentours.</p>
     <div class="map-placeholder">
       <div id="live-map" class="map-live" aria-label="Carte interactive des invendus"></div>
     </div>
