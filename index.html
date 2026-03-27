@@ -758,7 +758,7 @@ footer p { font-size: .88rem; color: rgba(255,255,255,.4); margin-top: 8px; }
     <!-- BROWSE PANEL -->
     <div class="mode-panel active" id="panel-browse">
       <div class="section-tag">Disponible près de vous</div>
-      <h2 class="section-title" id="browse">Menus du jour (charte ReFood)</h2>
+      <h2 class="section-title" id="browse">Menus du jour </h2>
       <p class="section-sub">Des annonces lisibles, sans ambiguite: composition claire, portions reelles, retrait simple.</p>
 
       <div class="cards-grid" id="cards-container">
@@ -1089,18 +1089,13 @@ function renderCards() {
       <div class="card-body">
         <div class="card-title" data-emoji="${item.emoji || '🍽️'}">${item.title}</div>
         <div class="card-meta">
-          <span>Distance: ${item.dist}</span>
           <span>Limite: ${item.time}</span>
           <span>Qté: ${item.qty}</span>
         </div>
       </div>
       <div class="card-footer">
-        <div>
-          <div class="card-author">${item.shop}</div>
-          <div style="font-size:.78rem;color:var(--muted);text-decoration:line-through">${item.original}€</div>
-        </div>
         <div style="display:flex;align-items:center;gap:10px">
-          <div style="font-size:1.1rem;font-weight:900;color:var(--green)">${item.price}€</div>
+          <div style="font-size:1.1rem;font-weight:900;color:var(--green)">2,99€</div>
           <button class="btn-reserve" onclick="event.stopPropagation();openReserve(${item.id})">Réserver</button>
         </div>
       </div>
