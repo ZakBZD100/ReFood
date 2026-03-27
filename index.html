@@ -215,6 +215,87 @@ nav {
 }
 .stat-label { font-size: .82rem; color: var(--muted); font-weight: 600; margin-top: 4px; }
 
+/* ─── PROMO ZONE ─────────────────────────────────────────────────── */
+.promo-zone {
+  max-width: 1200px;
+  margin: 28px auto 0;
+  padding: 0 22px;
+}
+.promo-shell {
+  background: linear-gradient(145deg, #ffffff 0%, #f6fbf8 100%);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  padding: 28px;
+}
+.promo-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.promo-top h3 {
+  font-family: 'Sora', sans-serif;
+  font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+  font-weight: 800;
+  color: var(--text);
+}
+.promo-top p {
+  color: var(--muted);
+  font-size: .88rem;
+  line-height: 1.45;
+}
+.social-logos {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.social-logo {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  border: 1px solid #d7e3db;
+  background: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+.social-logo:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(15,34,24,.14);
+}
+.social-logo svg {
+  width: 23px;
+  height: 23px;
+  display: block;
+}
+.social-logo.yt svg { fill: #ff0000; }
+.social-logo.tk svg { fill: #000000; }
+.social-logo.ig svg { fill: #e4405f; }
+
+.supply-note {
+  border: 1px solid #dbe8df;
+  border-radius: 12px;
+  background: #fff;
+  color: var(--muted);
+  font-size: .9rem;
+  padding: 12px 14px;
+}
+.promo-cta {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+.promo-cta .note {
+  font-size: .83rem;
+  font-weight: 700;
+  color: var(--muted);
+}
+
 /* ─── SECTION ─────────────────────────────────────────────────────── */
 .section { padding: 72px 48px; max-width: 1200px; margin: 0 auto; }
 .section-tag {
@@ -283,16 +364,47 @@ nav {
   background: linear-gradient(145deg, #dcf6e6 0%, #f8f0dd 100%);
   display: flex; align-items: center; justify-content: center;
   font-size: 4rem; position: relative;
+  overflow: hidden;
+}
+.card-img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 22% 24%, rgba(255,255,255,.6) 0%, rgba(255,255,255,0) 48%);
+}
+.card-visual {
+  font-size: 3.3rem;
+  line-height: 1;
+  filter: drop-shadow(0 6px 10px rgba(15,34,24,.2));
+  z-index: 1;
+}
+.card-category {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  z-index: 2;
+  background: rgba(15,106,56,.9);
+  color: #fff;
+  font-size: .72rem;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 50px;
+  letter-spacing: .03em;
 }
 .card-badge {
   position: absolute; top: 12px; right: 12px;
   background: var(--green); color: white;
   font-size: .72rem; font-weight: 800; padding: 4px 10px;
   border-radius: 50px; letter-spacing: .04em;
+  z-index: 2;
 }
 .card-badge.urgent { background: var(--orange); }
 .card-body { padding: 16px 18px; }
 .card-title { font-weight: 800; font-size: 1rem; margin-bottom: 4px; }
+.card-title::before {
+  content: attr(data-emoji) ' ';
+  font-size: 1.05rem;
+}
 .card-meta { color: var(--muted); font-size: .85rem; display: flex; gap: 12px; flex-wrap: wrap; }
 .card-meta span { display: flex; align-items: center; gap: 4px; }
 .card-footer {
@@ -356,17 +468,94 @@ nav {
 
 /* Tip box */
 .tip-box {
-  background: linear-gradient(145deg, #e5f7eb, #f4fbef);
-  border: 1.5px solid var(--green-light);
-  border-radius: var(--radius); padding: 24px;
+  background: linear-gradient(145deg, #f7fbf8, #ffffff);
+  border: 1.5px solid #cfe4d6;
+  border-radius: var(--radius);
+  padding: 22px;
+  box-shadow: 0 10px 26px rgba(23,48,37,0.08);
 }
-.tip-box h4 { font-weight: 800; color: var(--green); margin-bottom: 14px; font-size: 1rem; }
-.tip-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-.tip-list li {
-  display: flex; align-items: flex-start; gap: 10px;
-  font-size: .9rem; color: var(--text); line-height: 1.5;
+.charter-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
 }
-.tip-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
+.charter-head h4 {
+  font-family: 'Sora', sans-serif;
+  font-weight: 800;
+  color: var(--green);
+  font-size: 1.02rem;
+}
+.charter-stamp {
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .06em;
+  color: var(--green);
+  border: 1px solid #b8d5c0;
+  background: #ecf7ef;
+  padding: 4px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+}
+.charter-sub {
+  color: var(--muted);
+  font-size: .88rem;
+  line-height: 1.55;
+  margin-bottom: 14px;
+}
+.charter-block {
+  border: 1px solid #e2ece4;
+  border-radius: 12px;
+  padding: 12px;
+  background: #fff;
+  margin-top: 10px;
+}
+.charter-block h5 {
+  font-size: .82rem;
+  font-weight: 800;
+  color: var(--dark2);
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.charter-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.charter-list li {
+  font-size: .9rem;
+  color: var(--text);
+  line-height: 1.45;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+.charter-dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #eaf6ee;
+  color: var(--green);
+  font-weight: 800;
+  font-size: .75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.charter-legal {
+  margin-top: 10px;
+  padding-top: 9px;
+  border-top: 1px dashed #d5e4d8;
+  font-size: .78rem;
+  color: #4e6559;
+  line-height: 1.45;
+}
+
 
 /* ─── HOW IT WORKS ───────────────────────────────────────────────── */
 .steps-grid {
@@ -489,6 +678,9 @@ footer p { font-size: .88rem; color: rgba(255,255,255,.4); margin-top: 8px; }
   .hero-visual { position: static; transform: none; margin-top: 32px; margin-left: 0; }
   .hero-logo-big { width: 320px; height: 320px; }
   .stats-strip { margin-top: -24px; width: calc(100% - 24px); }
+  .promo-zone { padding: 0 12px; margin-top: 18px; }
+  .promo-shell { padding: 22px; }
+  .promo-top { flex-direction: column; align-items: flex-start; }
   .section, .mode-section { padding: 48px 20px; }
   .map-section { padding: 48px 20px; }
   nav { padding: 0 16px; }
@@ -502,6 +694,8 @@ footer p { font-size: .88rem; color: rgba(255,255,255,.4); margin-top: 8px; }
   .mode-tab { flex: 1; text-align: center; padding: 11px 10px; }
   .stats-strip { flex-wrap: wrap; }
   .stat { border-right: none; border-bottom: 1px solid var(--border); flex: 0 0 50%; }
+  .promo-shell { padding: 18px; }
+  .social-logo { width: 42px; height: 42px; }
   .donate-panel { grid-template-columns: 1fr; }
   .row-2 { grid-template-columns: 1fr; }
 }
@@ -521,7 +715,7 @@ footer p { font-size: .88rem; color: rgba(255,255,255,.4); margin-top: 8px; }
 <section class="hero">
   <div class="hero-content">
     <h1>La bonne nourriture<br>ne devrait jamais <span>être gaspillée</span></h1>
-    <p>ReFood connecte les commerces avec leurs invendus aux personnes qui en ont besoin. Simple, local, gratuit pour les associations.</p>
+    <p>ReFood permet de donner et recuperer des invendus alimentaires simplement.</p>
     <div class="hero-ctas">
       <a href="#donate" class="btn-primary">Je donne des aliments</a>
       <a href="#browse" class="btn-secondary">Je récupère des aliments</a>
@@ -534,10 +728,10 @@ footer p { font-size: .88rem; color: rgba(255,255,255,.4); margin-top: 8px; }
 
 <!-- ─── STATS ─────────────────────────────────────────────────────── -->
 <div class="stats-strip">
-  <div class="stat"><div class="stat-num">10M</div><div class="stat-label">Tonnes gaspillées/an en France</div></div>
-  <div class="stat"><div class="stat-num">8M</div><div class="stat-label">Personnes en précarité alimentaire</div></div>
-  <div class="stat"><div class="stat-num">-70%</div><div class="stat-label">Prix sur les invendus</div></div>
-  <div class="stat"><div class="stat-num">0€</div><div class="stat-label">Pour les associations</div></div>
+  <div class="stat"><div class="stat-num">2,20€</div><div class="stat-label">Coût ingredients moyens / assiette</div></div>
+  <div class="stat"><div class="stat-num">x1,4</div><div class="stat-label">Coefficient logistique</div></div>
+  <div class="stat"><div class="stat-num">3,10€</div><div class="stat-label">Coût complet estime</div></div>
+  <div class="stat"><div class="stat-num">4,20€</div><div class="stat-label">Prix conseille (marge env. 35%)</div></div>
 </div>
 
 <!-- ─── BROWSE / DONATE TABS ──────────────────────────────────────── -->
@@ -551,8 +745,8 @@ footer p { font-size: .88rem; color: rgba(255,255,255,.4); margin-top: 8px; }
     <!-- BROWSE PANEL -->
     <div class="mode-panel active" id="panel-browse">
       <div class="section-tag">Disponible près de vous</div>
-      <h2 class="section-title" id="browse">Paniers anti-gaspi du jour</h2>
-      <p class="section-sub">Récupérez de bons produits à prix réduit avant qu'ils ne soient jetés.</p>
+      <h2 class="section-title" id="browse">Menus du jour (charte ReFood)</h2>
+      <p class="section-sub">Des annonces lisibles, sans ambiguite: composition claire, portions reelles, retrait simple.</p>
 
       <div class="cards-grid" id="cards-container">
         <!-- Cards injected by JS -->
@@ -565,18 +759,18 @@ footer p { font-size: .88rem; color: rgba(255,255,255,.4); margin-top: 8px; }
         <div>
           <div class="section-tag">Donner c'est agir</div>
           <h2 class="section-title" id="donate">Publiez vos invendus</h2>
-          <p class="section-sub" style="margin-bottom:28px">En moins d'une minute, vos invendus trouvent preneur. Réduisez vos pertes, valorisez votre impact RSE.</p>
+          <p class="section-sub" style="margin-bottom:28px">Saisissez vos coûts ingredients, appliquez votre logistique, puis publiez un prix juste avec marge maitrisee.</p>
 
           <div class="form-card">
             <h3>Ajouter un invendu</h3>
             <div class="form-group">
               <label class="form-label">Nom du produit</label>
-              <input class="form-input" type="text" placeholder="Ex: Pain de campagne, plateau de fromages...">
+              <input id="input-name" class="form-input" type="text" placeholder="Ex: Pain de campagne, plateau de fromages...">
             </div>
             <div class="row-2">
               <div class="form-group">
                 <label class="form-label">Catégorie</label>
-                <select class="form-input form-select">
+                <select id="input-cat" class="form-input form-select">
                   <option>Boulangerie</option>
                   <option>Fruits & Légumes</option>
                   <option>Produits laitiers</option>
@@ -588,26 +782,51 @@ footer p { font-size: .88rem; color: rgba(255,255,255,.4); margin-top: 8px; }
               </div>
               <div class="form-group">
                 <label class="form-label">Quantité</label>
-                <input class="form-input" type="text" placeholder="Ex: 5 pains, 2 kg...">
+                <input id="input-qty" class="form-input" type="text" placeholder="Ex: 5 pains, 2 kg...">
               </div>
             </div>
             <div class="row-2">
               <div class="form-group">
                 <label class="form-label">Prix réduit (€)</label>
-                <input class="form-input" type="number" placeholder="0.00">
+                <input id="input-price" class="form-input" type="number" placeholder="0.00">
               </div>
               <div class="form-group">
                 <label class="form-label">À récupérer avant</label>
-                <input class="form-input" type="time" value="20:00">
+                <input id="input-time" class="form-input" type="time" value="20:00">
+              </div>
+            </div>
+            <div class="row-2">
+              <div class="form-group">
+                <label class="form-label">Type de date (Loi Garot)</label>
+                <select id="date-type" class="form-input form-select">
+                  <option value="DLC">DLC (à consommer jusqu'au)</option>
+                  <option value="DDM">DDM (à consommer de préférence avant)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Date limite</label>
+                <input id="date-limit" class="form-input" type="date">
               </div>
             </div>
             <div class="form-group">
               <label class="form-label">Description (optionnel)</label>
-              <textarea class="form-input form-textarea" placeholder="Décrivez vos produits, état de fraîcheur, allergènes..."></textarea>
+              <textarea id="input-desc" class="form-input form-textarea" placeholder="Décrivez vos produits, état de fraîcheur, allergènes..."></textarea>
             </div>
             <div class="form-group">
               <label class="form-label">Votre établissement</label>
-              <input class="form-input" type="text" placeholder="Boulangerie Martin, 12 rue du Pain, Mulhouse">
+              <input id="input-shop" class="form-input" type="text" placeholder="Boulangerie Martin, 12 rue du Pain, Mulhouse">
+            </div>
+            <div class="form-group" style="display:flex;align-items:center;gap:12px;margin-top:4px">
+              <input type="checkbox" id="allergen-ok" style="width:18px;height:18px;accent-color:var(--green)">
+              <label for="allergen-ok" style="font-size:.9rem;font-weight:700;cursor:pointer">
+                Allergènes visibles sur l'annonce (UE n°1169/2011)
+              </label>
+            </div>
+            <div class="form-group" style="display:flex;align-items:center;gap:12px;margin-top:4px">
+              <input type="checkbox" id="cold-chain-ok" style="width:18px;height:18px;accent-color:var(--green)">
+              <label for="cold-chain-ok" style="font-size:.9rem;font-weight:700;cursor:pointer">
+                Chaîne du froid maîtrisée pour produits frais (arrêté du 21/12/2009)
+              </label>
             </div>
             <div class="form-group" style="display:flex;align-items:center;gap:12px;margin-top:4px">
               <input type="checkbox" id="free-asso" style="width:18px;height:18px;accent-color:var(--green)">
@@ -621,15 +840,43 @@ footer p { font-size: .88rem; color: rgba(255,255,255,.4); margin-top: 8px; }
 
         <div>
           <div class="tip-box">
-            <h4>Conseils pratiques</h4>
-            <ul class="tip-list">
-              <li><span class="tip-icon">1</span><span>Ajoutez une photo nette et une description simple du produit</span></li>
-              <li><span class="tip-icon">2</span><span>Indiquez une heure limite réaliste pour éviter les annulations</span></li>
-              <li><span class="tip-icon">3</span><span>Précisez les quantités et les allergènes quand c'est possible</span></li>
-              <li><span class="tip-icon">4</span><span>Pensez à cocher l'option association si vous souhaitez donner gratuitement</span></li>
-              <li><span class="tip-icon">5</span><span>Mettez à jour ou retirez l'annonce dès que le stock change</span></li>
-              <li><span class="tip-icon">6</span><span>Gardez un point de retrait clair pour accélérer la collecte</span></li>
-            </ul>
+            <div class="charter-head">
+              <h4>Charte de publication vendeur</h4>
+              <span class="charter-stamp">Conforme</span>
+            </div>
+            <p class="charter-sub">
+              Cadre interne ReFood pour publier des annonces claires, verifier rapidement la conformite et rassurer les acheteurs.
+            </p>
+
+            <div class="charter-block">
+              <h5>Avant publication (obligatoire)</h5>
+              <ul class="charter-list">
+                <li><span class="charter-dot">1</span><span>Nom produit, quantite, heure limite et lieu de retrait renseignes.</span></li>
+                <li><span class="charter-dot">2</span><span>Annonce basee sur stock reel, retrait immediat apres epuisement.</span></li>
+                <li><span class="charter-dot">3</span><span>Prix reduit coherent avec l'etat du produit et la date limite.</span></li>
+              </ul>
+            </div>
+
+            <div class="charter-block">
+              <h5>Conformite alimentaire</h5>
+              <ul class="charter-list">
+                <li><span class="charter-dot">4</span><span>Allergenes visibles avant validation de l'annonce.</span></li>
+                <li><span class="charter-dot">5</span><span>Chaine du froid maitrisee pour produits frais (laitiers, plats, viandes, poissons).</span></li>
+                <li><span class="charter-dot">6</span><span>DLC non depassee. DDM autorisee dans une logique anti-gaspillage.</span></li>
+              </ul>
+            </div>
+
+            <div class="charter-block">
+              <h5>Exemples de paniers (non limitatifs)</h5>
+              <ul class="charter-list">
+                <li><span class="charter-dot">7</span><span>Repas type: puree pdt + ratatouille + viande du jour + yaourt.</span></li>
+                <li><span class="charter-dot">8</span><span>Petit dejeuner: porridge + compote de fruits invendus + pain invendus.</span></li>
+              </ul>
+            </div>
+
+            <div class="charter-legal">
+              References: CE n°852/2004 (hygiene/HACCP), UE n°1169/2011 (information consommateur), arrete du 21/12/2009 (temperature), Loi Garot n°2016-138 (anti-gaspillage).
+            </div>
           </div>
 
           <div class="form-card" style="margin-top:20px">
@@ -647,12 +894,41 @@ footer p { font-size: .88rem; color: rgba(255,255,255,.4); margin-top: 8px; }
   </div>
 </div>
 
+<!-- ─── PROMO / ACQUISITION ─────────────────────────────────────── -->
+<section class="promo-zone" aria-label="Promotion ReFood">
+  <div class="promo-shell">
+    <div class="promo-top">
+      <div>
+        <h3>Comment on est fourni</h3>
+        <p>Agriculteurs et fournisseurs locaux, en direct.</p>
+      </div>
+      <div class="social-logos" aria-label="Canaux sociaux">
+        <a class="social-logo yt" href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        </a>
+        <a class="social-logo tk" href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+        </a>
+        <a class="social-logo ig" href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="supply-note">Produits frais et stocks utiles recuperes chez nos partenaires locaux.</div>
+
+    <div class="promo-cta">
+      <a href="#donate" class="btn-primary">Devenir fournisseur</a>
+    </div>
+  </div>
+</section>
+
 <!-- ─── MAP ───────────────────────────────────────────────────────── -->
 <section class="map-section">
   <div class="map-inner">
     <div class="section-tag" style="color:var(--green-light)">Disponibilité temps réel</div>
-    <h2 class="section-title">Invendus près de chez vous</h2>
-    <p class="section-sub">Retrouvez tous les points de collecte actifs autour de vous. Mulhouse et alentours.</p>
+    <h2 class="section-title">Points de collecte et coûts locaux</h2>
+    <p class="section-sub">Comparez les annonces actives et leur niveau de coût sur Mulhouse et alentours.</p>
     <div class="map-placeholder">
       <div id="live-map" class="map-live" aria-label="Carte interactive des invendus"></div>
     </div>
@@ -700,7 +976,7 @@ footer p { font-size: .88rem; color: rgba(255,255,255,.4); margin-top: 8px; }
       <button class="modal-close" onclick="closeModal()">✕</button>
     </div>
     <div class="success-msg">
-      <div class="success-icon">🎉</div>
+      <div class="success-icon">OK</div>
       <h4>C'est réservé pour vous !</h4>
       <p>Rendez-vous au point de collecte avant l'heure limite. Un SMS de confirmation vous a été envoyé.</p>
       <button class="btn-full" style="max-width:240px" onclick="closeModal()">Parfait, merci !</button>
@@ -710,7 +986,7 @@ footer p { font-size: .88rem; color: rgba(255,255,255,.4); margin-top: 8px; }
 
 <!-- ─── TOAST ─────────────────────────────────────────────────────── -->
 <div class="toast" id="toast">
-  <span id="toast-icon">✅</span>
+  <span id="toast-icon">OK</span>
   <span id="toast-text">Action effectuée</span>
 </div>
 
@@ -729,13 +1005,27 @@ footer p { font-size: .88rem; color: rgba(255,255,255,.4); margin-top: 8px; }
 <script>
 // ── DATA ──────────────────────────────────────────────────────────────────
 const items = [
-  { id:1, emoji:'🥖', title:'Assortiment de pains du jour', shop:'Boulangerie Schmitt', dist:'0.3 km', time:'avant 19h30', price:'2.50', original:'8', badge:'Urgent', badgeType:'urgent', cat:'Boulangerie', qty:'8 pains' },
-  { id:2, emoji:'🥐', title:'Viennoiseries & croissants', shop:'Pâtisserie Müller', dist:'0.7 km', time:'avant 18h00', price:'3.00', original:'10', badge:'Populaire', badgeType:'', cat:'Pâtisserie', qty:'12 pièces' },
-  { id:3, emoji:'🥕', title:'Plateau de légumes bio', shop:'Bio Market Illberg', dist:'1.1 km', time:'avant 20h00', price:'4.50', original:'12', badge:'Gratuit asso', badgeType:'', cat:'Légumes', qty:'2 kg' },
-  { id:4, emoji:'🍲', title:'Plats du jour non servis', shop:"Restaurant L'Alsace", dist:'1.4 km', time:'avant 21h00', price:'5.00', original:'15', badge:'Chaud', badgeType:'urgent', cat:'Plats préparés', qty:'4 portions' },
-  { id:5, emoji:'🧀', title:'Plateau fromages affinés', shop:'Fromagerie Bergmann', dist:'1.8 km', time:'avant 19h00', price:'6.00', original:'18', badge:'Dernier', badgeType:'urgent', cat:'Fromages', qty:'600g' },
-    { id:6, emoji:'🍰', title:'Gâteaux & tartes du jour', shop:'Pâtisserie Chez Marie', dist:'2.2 km', time:'avant 20h30', price:'4.00', original:'14', badge:'Nouveau', badgeType:'', cat:'Pâtisserie', qty:'6 parts' },
+  { id:4, emoji:'🥣', title:'Porridge du matin', shop:'Bistro Petit Dej', dist:'1.4 km', time:'avant 09h30', price:'1.50', original:'2.50', badge:'Petit dejeuner', badgeType:'', cat:'Petit dejeuner', qty:'12 bols' },
+  { id:5, emoji:'🍎', title:'Compote fruits invendus + pain invendus', shop:'Coop Producteurs Haut-Rhin', dist:'1.8 km', time:'avant 10h00', price:'1.80', original:'3.00', badge:'Anti-gaspi', badgeType:'urgent', cat:'Petit dejeuner', qty:'15 portions' },
+  { id:6, emoji:'🥖', title:'Formule petit dejeuner complete', shop:'Maison du Matin', dist:'2.2 km', time:'avant 09h45', price:'2.90', original:'4.50', badge:'Porridge + compote + pain', badgeType:'', cat:'Petit dejeuner', qty:'8 formules' },
+  { id:1, emoji:'🍲', title:'Repas type complet', shop:'Cuisine Centrale Locale', dist:'0.3 km', time:'avant 19h30', price:'4.20', original:'6.00', badge:'Repas type', badgeType:'urgent', cat:'Repas', qty:'6 portions' },
+  { id:2, emoji:'🥔', title:'Puree pdt + ratatouille (legume du jour)', shop:'Atelier Cuisine Solidaire', dist:'0.7 km', time:'avant 18h30', price:'2.40', original:'3.60', badge:'Base repas', badgeType:'', cat:'Repas', qty:'10 portions' },
+  { id:3, emoji:'🍗', title:'Viande du jour + yaourt', shop:'Cantine des Remparts', dist:'1.1 km', time:'avant 20h00', price:'2.80', original:'4.20', badge:'Complement', badgeType:'', cat:'Repas', qty:'8 portions' },
 ];
+
+function itemPriority(item) {
+  if (item.cat === 'Petit dejeuner') return 0;
+  if (item.cat === 'Repas') return 1;
+  return 2;
+}
+
+function getSortedItems() {
+  return [...items].sort((a, b) => {
+    const p = itemPriority(a) - itemPriority(b);
+    if (p !== 0) return p;
+    return b.id - a.id;
+  });
+}
 
 // ── MAP ───────────────────────────────────────────────────────────────────
 let mapInstance = null;
@@ -751,11 +1041,11 @@ function initRealtimeMap() {
   }).addTo(mapInstance);
 
   const points = [
-    { lat: 47.7508, lng: 7.3359, status: 'Disponible', label: 'Boulangerie Schmitt' },
-    { lat: 47.7425, lng: 7.3294, status: 'Bientôt expiré', label: "Restaurant L'Alsace" },
-    { lat: 47.7579, lng: 7.3471, status: 'Disponible', label: 'Bio Market Illberg' },
-    { lat: 47.7368, lng: 7.3224, status: 'Disponible', label: 'Pâtisserie Chez Marie' },
-    { lat: 47.7616, lng: 7.3188, status: 'Bientôt expiré', label: 'Fromagerie Bergmann' }
+    { lat: 47.7508, lng: 7.3359, status: 'Disponible', label: 'Cuisine Centrale Locale' },
+    { lat: 47.7425, lng: 7.3294, status: 'Bientôt expiré', label: 'Cantine des Remparts' },
+    { lat: 47.7579, lng: 7.3471, status: 'Disponible', label: 'Atelier Cuisine Solidaire' },
+    { lat: 47.7368, lng: 7.3224, status: 'Disponible', label: 'Bistro Petit Dej' },
+    { lat: 47.7616, lng: 7.3188, status: 'Bientôt expiré', label: 'Maison du Matin' }
   ];
 
   points.forEach((p) => {
@@ -776,14 +1066,15 @@ initRealtimeMap();
 // ── RENDER CARDS ──────────────────────────────────────────────────────────
 function renderCards() {
   const container = document.getElementById('cards-container');
-  container.innerHTML = items.map(item => `
+  container.innerHTML = getSortedItems().map(item => `
     <div class="food-card" onclick="openReserve(${item.id})">
       <div class="card-img">
-        ${item.emoji}
+        <div class="card-visual">${item.emoji || '🍽️'}</div>
+        <div class="card-category">${item.cat}</div>
         <div class="card-badge ${item.badgeType}">${item.badge}</div>
       </div>
       <div class="card-body">
-        <div class="card-title">${item.title}</div>
+        <div class="card-title" data-emoji="${item.emoji || '🍽️'}">${item.title}</div>
         <div class="card-meta">
           <span>Distance: ${item.dist}</span>
           <span>Limite: ${item.time}</span>
@@ -852,14 +1143,48 @@ document.querySelectorAll('.modal-overlay').forEach(overlay => {
 // ── PUBLISH ITEM ──────────────────────────────────────────────────────────
 function publishItem() {
   const listing = document.getElementById('my-listings');
-  const inputs = document.querySelectorAll('#panel-donate .form-input');
-  const name = inputs[0].value || 'Nouvel invendu';
+  const name = document.getElementById('input-name').value || 'Nouvel invendu';
+  const cat = document.getElementById('input-cat').value || 'Autre';
+  const qty = document.getElementById('input-qty').value || '1 unité';
+  const price = document.getElementById('input-price').value || '1';
+  const timeLimit = document.getElementById('input-time').value || '20:00';
+  const shop = document.getElementById('input-shop').value || 'Votre établissement';
+  const dateType = document.getElementById('date-type').value;
+  const dateLimit = document.getElementById('date-limit').value;
+  const allergenOk = document.getElementById('allergen-ok').checked;
+  const coldChainOk = document.getElementById('cold-chain-ok').checked;
+
+  if (!allergenOk) {
+    showToast('!', 'Allergènes requis avant publication (UE n°1169/2011).');
+    return;
+  }
+
+  if (!dateLimit) {
+    showToast('!', 'Ajoutez une date limite (DLC ou DDM).');
+    return;
+  }
+
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const selectedDate = new Date(dateLimit + 'T00:00:00');
+
+  if (dateType === 'DLC' && selectedDate < today) {
+    showToast('!', 'DLC dépassée: publication bloquée (Loi Garot).');
+    return;
+  }
+
+  const isFreshCategory = ['Produits laitiers', 'Plats préparés', 'Poissons & Viandes'].includes(cat);
+  if (isFreshCategory && !coldChainOk) {
+    showToast('!', 'Validez la chaîne du froid pour cette catégorie.');
+    return;
+  }
+
   listing.innerHTML = `
     <div style="display:flex;align-items:center;gap:14px;padding:14px;background:var(--surface);border-radius:var(--radius-sm);border:1px solid var(--border)">
       <div style="font-size:2rem">+</div>
       <div style="flex:1">
         <div style="font-weight:800;font-size:.95rem">${name}</div>
-        <div style="font-size:.8rem;color:var(--muted);margin-top:3px">Publié à l'instant · En ligne</div>
+        <div style="font-size:.8rem;color:var(--muted);margin-top:3px">Publié à l'instant · En ligne · ${dateType} ${dateLimit}</div>
       </div>
       <div style="background:#e8f5e9;color:var(--green);font-size:.75rem;font-weight:800;padding:4px 10px;border-radius:50px">Actif</div>
     </div>
@@ -867,16 +1192,16 @@ function publishItem() {
 
   // Add to browse
   const newId = Date.now();
-  items.unshift({
+  items.push({
     id: newId, emoji:'🍽️', title: name,
-    shop: inputs[5]?.value || 'Votre établissement',
-    dist:'0.0 km', time: `avant ${inputs[4]?.value || '20:00'}`,
-    price: inputs[3]?.value || '1', original: String(Number(inputs[3]?.value||1)*3),
-    badge:'Nouveau', badgeType:'', cat: inputs[1]?.value || 'Autre', qty: inputs[2]?.value || '1 unité'
+    shop,
+    dist:'0.0 km', time: `avant ${timeLimit}`,
+    price, original: String(Number(price || 1) * 3),
+    badge:'Nouveau', badgeType:'', cat, qty
   });
   renderCards();
 
-  showToast('✅', 'Votre annonce est en ligne !');
+  showToast('OK', 'Votre annonce est en ligne !');
 }
 
 // ── TOAST ─────────────────────────────────────────────────────────────────
